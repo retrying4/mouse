@@ -10,7 +10,7 @@ echo
 clear
 echo 
 echo
-while true;
+for i in 1 2 3 4 5 6
 do
 function pause(){
 read -s -n 1 -p "Press any key to continue.."
@@ -93,32 +93,52 @@ sudo cp -rf OSX-ElCap/ /usr/share/icons/OSX-ElCap && sudo update-alternatives --
 echo
 echo "|Installed|"
 echo
-fi
+fi 
 pause “Press any key to continue…”
 ;;
 
 4)
 clear
-echo "Select X11 cursor theme Number and from KDE Settings -> Workspace Theme
-then click on Cursor Theme -> OSX-ElCap then click apply."
+echo "Select X11 cursor theme then also from gnome-tweak-tool if not installed
+then installer will install it for you."
 printf '=%.0s' {1..72}
 echo
 echo
 sudo  update-alternatives --config x-cursor-theme
 echo
 echo
+printf '=%.0s' {1..70}
+echo
+DIR="/usr/bin/gnome-tweak-tool"
+  
+if [ -f "$DIR" ]
+then
 clear
 printf '=%.0s' {1..72}
 echo
-echo "Note: First logout then run KDE Settings
-goto Startup and Shutdown select the cursor theme
-from Login Screen SDDM -> Advance and then again 
+echo "Note: First logout then run gnome-tweak-tool
+command to select the cursor theme and then again 
 logout to fully use the cursor theme."
 printf '=%.0s' {1..72}
 echo
 echo
 echo "|Enjoy the theme|"
 echo
+else
+clear
+sudo apt install gnome-tweak-tool -y
+clear
+printf '=%.0s' {1..72}
+echo
+echo "Note: First logout then run gnome-tweak-tool
+command to select the cursor theme and then again 
+logout to fully use the cursor theme."
+printf '=%.0s' {1..72}
+echo
+echo
+echo "|Enjoy the theme|"
+echo
+fi
 pause “Press any key to continue…”
 ;;
 
